@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test2</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+</head>
+
+<body>
+<script>
+//	timedMsg();
+//	function timedMsg(){
+//	
+//		var download = setTimeout("download_csv()",300000)
+//	}
+    var download = [];
+	var code = ["AA","AS","B6","DL","F9","HA","UA","VX","WN"]
+        //var filePath = "data/filtered_data/" + carrier + "/" + carrier +  "_" + month + ".csv";
+        var filePath=[];
+		var downloadFileName=[];
+	
+		function generate(){
+			for(var i = 0; i < code.length; i++){
+			    
+				for(var j = 1; j <=12;j++){
+					//debugger
+					filePath.push ("data/filtered_data/" + code[i] + "/" +code[i]+"_" + j +".csv");
+					console.log(filePath.length)
+					downloadFileName.push ("data/filtered_data/" + code[i] + "/" +code[i]+"_" + j +"_delay"+".csv");
+				}
+			}
+			
+		}
+		generate();
+    d3.json("airport.json", function(error, airports) {
+        if (error) throw error;
+
+        var airportIndex = function(code) {
+            for (var i = 0; i < airports.length; i++) {
+                if (airports[i].code == code) {
+                    return airports[i].index;
+                }
+            }
+        };
+
+        var indexAirport = function(index) {
+            for (var i = 0; i < airports.length; i++) {
+                if (airports[i].index == index) {
+                    return airports[i].code;
+                }
+            }
+        };
+		
+		
+		var output = [];
+		
+		function loadFile(singlefilepath){
+			
+		
+		
+        d3.csv(singlefilepath, function(data) {
+			
+			//console.log(singlefilepath)
+
+            
+            for (var i = 0; i < 30; i++) {
+                output[i] = [];
+                for (var j = 0; j < 30; j++) {
+                    output[i][j] = {
+						carrier: 0,
+                        total_count: 0,
+                        delay_count: 0,
+                        carrier_delay: 0,
+                        weather_delay: 0,
+                        nas_delay: 0,
+                        security_delay: 0,
+                        late_aircraft_delay: 0,
+						month:0
+                    }
+                }
+            }
+
+            data.forEach(function(d) {
+				d.UNIQUE_CARRIER = d.UNIQUE_CARRIER;
+                d.ARR_DELAY_NEW = +d.ARR_DELAY_NEW;
+                d.CARRIER_DELAY = +d.CARRIER_DELAY;
+                d.WEATHER_DELAY = +d.WEATHER_DELAY;
+                d.NAS_DELAY = +d.NAS_DELAY;
+                d.SECURITY_DELAY = +d.SECURITY_DELAY;
+                d.LATE_AIRCRAFT_DELAY = +d.LATE_AIRCRAFT_DELAY;
+				d.MONTH = d.MONTH;
+				
+
+                output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].total_count++;
+				output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].month = d.MONTH;
+				output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].carrier = d.UNIQUE_CARRIER;
+                if(d.ARR_DELAY_NEW > 0) {
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].delay_count++;
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].carrier_delay += d.CARRIER_DELAY;
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].weather_delay += d.WEATHER_DELAY;
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].nas_delay += d.NAS_DELAY;
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].security_delay += d.SECURITY_DELAY;
+                    output[airportIndex(d.ORIGIN)][airportIndex(d.DEST)].late_aircraft_delay += d.LATE_AIRCRAFT_DELAY;
+                }
+            });
+            for (var p = 0; p < 30; p++) {
+                for (var q = 0; q < 30; q++) {
+                    if (output[p][q].total_count != 0) {
+                        var total_delay = output[p][q].carrier_delay + output[p][q].weather_delay + output[p][q].nas_delay + output[p][q].security_delay + output[p][q].late_aircraft_delay;
+                        var percentage = parseFloat(Math.round(output[p][q].delay_count/output[p][q].total_count * 100)) + "%";
+						
+						
+						
+						download.push([indexAirport(p), indexAirport(q),output[p][q].carrier,output[p][q].month,percentage, output[p][q].total_count, output[p][q].delay_count, total_delay, output[p][q].carrier_delay, output[p][q].weather_delay, output[p][q].nas_delay, output[p][q].security_delay, output[p][q].late_aircraft_delay]);
+                    }
+                }
+            }
+			if(filePath.length>0){
+			console.log(filePath.length)
+	
+				loadFile(filePath.pop())
+				
+			}else{
+				download_csv()
+			}
+			
+        });
+		
+		}
+		loadFile(filePath.pop());
+
+		
+    });
+
+    function download_csv() {
+        var csv = 'Origin,Destination,Carrier,Month,Percentage,Total Flight,Delay Flight,Total Delay Time:min,Carrier Delay,Weather Delay,NAS Delay,Security Delay,Aircraft Delay\n';
+        download.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+        });
+
+        console.log(csv);
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = '/delay.csv';
+        hiddenElement.click();
+    }
+	
+</script>
+
+
+
+</body>
+</html>

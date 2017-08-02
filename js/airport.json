@@ -1,0 +1,242 @@
+[
+    {
+      "index": 0,
+      "code": "ATL",
+      "city": "Atlanta",
+      "state": "Georgia",
+      "latitude": 33.7489954,
+      "longitude": -84.3879824
+    },
+    {
+      "index": 1,
+      "code": "BOS",
+      "city": "Boston",
+      "state": "Massachusetts",
+      "latitude": 42.3600825,
+      "longitude": -71.0588801
+    },
+    {
+      "index": 2,
+      "code": "BWI",
+      "city": "Baltimore",
+      "state": "Maryland",
+      "latitude": 39.2903848,
+      "longitude": -76.6121893
+    },
+    {
+      "index": 3,
+      "code": "CLT",
+      "city": "Charlotte",
+      "state": "North Carolina",
+      "latitude": 35.2270869,
+      "longitude": -80.8431267
+    },
+    {
+      "index": 4,
+      "code": "DCA",
+      "city": "Washington",
+      "state": "District of Columbia",
+      "latitude": 38.8514444,
+      "longitude": -77.0377222
+    },
+    {
+      "index": 5,
+      "code": "DEN",
+      "city": "Denver",
+      "state": "Colorado",
+      "latitude": 39.7392358,
+      "longitude": -104.990251
+    },
+    {
+      "index": 6,
+      "code": "DFW",
+      "city": "Dallas/Fort",
+      "state": "Texas",
+      "latitude": 32.8972316,
+      "longitude": -97.0376949
+    },
+    {
+      "index": 7,
+      "code": "DTW",
+      "city": "Detroit",
+      "state": "Michigan",
+      "latitude": 42.331427,
+      "longitude": -83.0457538
+    },
+    {
+      "index": 8,
+      "code": "EWR",
+      "city": "Newark",
+      "state": "New Jersey",
+      "latitude": 40.735657,
+      "longitude": -74.1723667
+    },
+    {
+      "index": 9,
+      "code": "FLL",
+      "city": "Fort Lauderdale",
+      "state": "Florida",
+      "latitude": 26.1224386,
+      "longitude": -80.13731740000001
+    },
+    {
+      "index": 10,
+      "code": "HNL",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "latitude": 21.3069444,
+      "longitude": -157.8583333
+    },
+    {
+      "index": 11,
+      "code": "IAD",
+      "city": "Washington",
+      "state": "District of Columbia",
+      "latitude": 38.9474444,
+      "longitude": -77.4599444
+    },
+    {
+      "index": 12,
+      "code": "IAH",
+      "city": "Houston",
+      "state": "Texas",
+      "latitude": 29.7604267,
+      "longitude": -95.3698028
+    },
+    {
+      "index": 13,
+      "code": "JFK",
+      "city": "New York",
+      "state": "New York",
+      "latitude": 40.6399257,
+      "longitude": -73.7786950
+    },
+    {
+      "index": 14,
+      "code": "LAS",
+      "city": "Las Vegas",
+      "state": "Nevada",
+      "latitude": 36.1699412,
+      "longitude": -115.1398296
+    },
+    {
+      "index": 15,
+      "code": "LAX",
+      "city": "Los Angeles",
+      "state": "California",
+      "latitude": 34.0522342,
+      "longitude": -118.2436849
+    },
+    {
+      "index": 16,
+      "code": "LGA",
+      "city": "New York",
+      "state": "New York",
+      "latitude": 40.7772500,
+      "longitude": -73.8726111
+    },
+    {
+      "index": 17,
+      "code": "MCO",
+      "city": "Orlando",
+      "state": "Florida",
+      "latitude": 28.5383355,
+      "longitude": -81.3792365
+    },
+    {
+      "index": 18,
+      "code": "MDW",
+      "city": "Chicago",
+      "state": "Illinois",
+      "latitude": 41.7859722,
+      "longitude": -87.7524167
+    },
+    {
+      "index": 19,
+      "code": "MIA",
+      "city": "Miami",
+      "state": "Florida",
+      "latitude": 25.7616798,
+      "longitude": -80.1917902
+    },
+    {
+      "index": 20,
+      "code": "MSP",
+      "city": "Minneapolis",
+      "state": "Minnesota",
+      "latitude": 44.977753,
+      "longitude": -93.2650108
+    },
+    {
+      "index": 21,
+      "code": "ORD",
+      "city": "Chicago",
+      "state": "Illinois",
+      "latitude": 41.9773201,
+      "longitude": -87.9080059
+    },
+    {
+      "index": 22,
+      "code": "PDX",
+      "city": "Portland",
+      "state": "Oregon",
+      "latitude": 45.5230622,
+      "longitude": -122.6764816
+    },
+    {
+      "index": 23,
+      "code": "PHL",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "latitude": 39.9525839,
+      "longitude": -75.1652215
+    },
+    {
+      "index": 24,
+      "code": "PHX",
+      "city": "Phoenix",
+      "state": "Arizona",
+      "latitude": 33.4483771,
+      "longitude": -112.0740373
+    },
+    {
+      "index": 25,
+      "code": "SAN",
+      "city": "San Diego",
+      "state": "California",
+      "latitude": 32.715738,
+      "longitude": -117.1610838
+    },
+    {
+      "index": 26,
+      "code": "SEA",
+      "city": "Seattle",
+      "state": "Washington",
+      "latitude": 47.6062095,
+      "longitude": -122.3320708
+    },
+    {
+      "index": 27,
+      "code": "SFO",
+      "city": "San Francisco",
+      "state": "California",
+      "latitude": 37.7749295,
+      "longitude": -122.4194155
+    },
+    {
+      "index": 28,
+      "code": "SLC",
+      "city": "Salt Lake City",
+      "state": "Utah",
+      "latitude": 40.7607793,
+      "longitude": -111.8910474
+    },
+    {
+      "index": 29,
+      "code": "TPA",
+      "city": "Tampa",
+      "state": "Florida",
+      "latitude": 27.950575,
+      "longitude": -82.4571776
+    }
+]
