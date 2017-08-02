@@ -1,6 +1,6 @@
 # Flight_Delay_Checking_System
 
-Project link: ["Project Link"](https://jacysun.github.io/Flight_Delay_Checking_System/index.html)
+Project link: ["Project Link"](https://jacysun.github.io/DataVisFinal/index.html)
 
 
 # Overview 
